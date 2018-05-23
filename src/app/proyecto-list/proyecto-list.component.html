@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="reglist">
+        <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Proyecto</th>
+          <th>Empresa</th>
+          <th>Presupuesto</th>
+          <th>Tecnologias</th>
+          <th>F.Inicio</th>
+          <th>Estado Actual</th>
+          <th>Empleados</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let proyecto of proyectoService.proyectoList" >
+            <td>{{proyecto.nombre}}</td>
+            <td>{{proyecto.empresa}}</td>
+            <td>{{proyecto.presupuesto}}</td>
+            <td>{{proyecto.tecnologias}}</td>
+            <td>{{proyecto.fechaInicio}}</td>
+            <td>{{proyecto.estadoActual}}</td>
+            <td>
+              <span *ngFor="let empleado of proyecto.empleados">{{empleado.nombre}} </span>
+            </td>
+        <td>
+        <button type="button" class="btn btn-info" (click)="showForEdit(proyecto)">Editar</button>
+        </td>
+        <td>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <div class="text-right">
+        <button type="submit" class="btn btn-primary">Nuevo</button>
+        </div>
+        </div>
+        <br>
+</div>
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    <app-proyecto-edit></app-proyecto-edit>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- <table class="table table-sm table-hover">
+  <tr *ngFor="let proyecto of x">
+    <td>{{proyecto.nombre}}</td>
+    <td>{{proyecto.empresa}}</td>
+    <td>{{proyecto.presupuesto}}</td>
+    <td>{{proyecto.tecnologias}}</td>
+    <td>{{proyecto.fechaInicio}}</td>
+    <td>{{proyecto.estadoActual}}</td>
+    <td>
+      <span *ngFor="let empleado of proyecto.empleados">{{empleado.nombre}} , </span>
+    </td>
+    <td>
+      <a class="btn" >
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table> -->
